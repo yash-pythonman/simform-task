@@ -12,7 +12,7 @@ class PersonResetService(Service):
 
     def process(self):
         Person.objects.filter(id=self.data.get("person_id")).uddate(
-            self.data.get("payload")
+            **self.data.get("payload")
         )
         return Response({}, status=status.HTTP_205_RESET_CONTENT)
 
